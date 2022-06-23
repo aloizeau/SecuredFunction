@@ -13,7 +13,8 @@ namespace BlazorWebApp.Data
             // Use the access token to call a protected web API.
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-            var response = await client.GetAsync("https://imi-securedfunction.azurewebsites.net/api/Sample?code=ZGfh3gf66aTWcwNff0fMwMmR_M41kZl5gbeKYIufP8CRAzFuUAR-qA==");
+            client.DefaultRequestHeaders.Add("x-functions-key", "ZGfh3gf66aTWcwNff0fMwMmR_M41kZl5gbeKYIufP8CRAzFuUAR-qA==");
+            var response = await client.GetAsync("https://imi-securedfunction.azurewebsites.net/api/Sample");
             return await response.Content.ReadAsStringAsync() + "| accessToken: " + accessToken;
         }
     }
