@@ -18,5 +18,4 @@ namespace BlazorWebApp.Data
             return await response.Content.ReadAsStringAsync() + "| accessToken: " + accessToken;
         }
     }
-
 }
